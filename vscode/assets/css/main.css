@@ -935,8 +935,18 @@ input, select, textarea {
 		#header h1 {
 			font-size: 2.25em;
 			font-weight: 700;
+			text-align: center;
+			padding: 10px 20px;
+			border: 2px solid black !important;
+			box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 		}
 
+		@media screen and (max-width: 480px) {
+			
+			#header h1 {
+			  /* padding: 5px 5px;  */
+			}
+		}
 /* Footer */
 
 	#footer {
@@ -970,7 +980,7 @@ input, select, textarea {
 		-webkit-flex-wrap: wrap;
 		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
-		padding: 0 0.75em;
+		padding: 0;
 	}
 
 		#thumbnails article {
@@ -978,19 +988,28 @@ input, select, textarea {
 			width: 50%;
 			background: #101010;
 			outline: 0;
+			box-sizing: border-box;
+			border: 1px solid white;
+			border-radius: 30px;
+			
+			
 		}
 
 			#thumbnails article .thumbnail {
 				-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 				display: block;
 				position: relative;
-				border: 0;
+				border: 5px solid black;
+				border-radius: 15px;
 				outline: 0;
 			}
 
 				#thumbnails article .thumbnail img {
 					display: block;
 					width: 100%;
+					padding: 0;
+					margin: 0;
+					border-radius: 10px;
 				}
 
 				#thumbnails article .thumbnail:before {
@@ -1008,6 +1027,7 @@ input, select, textarea {
 					box-shadow: inset 0 0 0 2px #00D3B7, inset 0 0 0px 3px rgba(0, 0, 0, 0.15);
 					opacity: 0;
 					z-index: 1;
+					border-radius: 10px;
 				}
 
 				#thumbnails article .thumbnail:focus:before {
@@ -1025,7 +1045,8 @@ input, select, textarea {
 		@media screen and (max-width: 480px) {
 
 			#thumbnails article .thumbnail:before {
-				display: none;
+				display: block;
+				margin: 0 auto;
 			}
 
 		}
@@ -1128,7 +1149,7 @@ input, select, textarea {
 				background-image: -ms-linear-gradient(left, rgba(16,16,16,0.2), rgba(16,16,16,0) 10em, rgba(16,16,16,0)), -ms-linear-gradient(right, rgba(16,16,16,0.2), rgba(16,16,16,0) 10em, rgba(16,16,16,0));
 				background-image: linear-gradient(left, rgba(16,16,16,0.2), rgba(16,16,16,0) 10em, rgba(16,16,16,0)), linear-gradient(right, rgba(16,16,16,0.2), rgba(16,16,16,0) 10em, rgba(16,16,16,0));
 				content: '';
-				display: block;
+				display: none;
 				position: absolute;
 				top: 0;
 				left: 0;
@@ -1190,6 +1211,10 @@ input, select, textarea {
 			height: 100%;
 			opacity: 1;
 			z-index: 1;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			overflow: hidden;
 		}
 
 			#viewer .slide .caption {
@@ -1222,8 +1247,10 @@ input, select, textarea {
 				height: 100%;
 				background-repeat: no-repeat;
 				background-size: cover;
+				background-position: center;
 				opacity: 0;
 			}
+				
 
 			#viewer .slide:before {
 				-moz-animation: spinner 1s linear infinite;
@@ -1276,7 +1303,7 @@ input, select, textarea {
 		@media screen and (max-width: 1280px) {
 
 			#viewer {
-				width: calc(100% - 19em);
+				width: 100%;
 			}
 
 		}
@@ -1308,7 +1335,10 @@ input, select, textarea {
 			#viewer .inner .toggle {
 				background-size: 32px 32px;
 			}
-
+			#viewer .slide .image {
+				background-size: contain;
+				background-position: center center;
+			}	
 			#viewer .inner .nav-next,
 			#viewer .inner .nav-previous {
 				background-image: url("images/arrow-small.svg");
@@ -1333,6 +1363,9 @@ input, select, textarea {
 				-ms-transition-delay: 0s;
 				transition-delay: 0s;
 				opacity: 0;
+			}
+			#viewer .slide .image {
+				background-size: cover;
 			}
 
 				#viewer .inner .toggle {
